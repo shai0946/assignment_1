@@ -1,0 +1,37 @@
+<br>
+
+<div class="">
+  <div class="row">
+    <div class="col analysis nopadding" >
+      Analysis Based On: 
+    </div>
+    <div class="col text-center" >
+      <button mat-stroked-button color="primary" [ngClass]="{'activeButton': step === 'Process'}" 
+              (click)="buttonClick($event)">Process</button>
+    </div>
+    <div class="col text-center">
+      <button mat-stroked-button color="primary" [ngClass]="{'activeButton': step === 'Customer'}" 
+              (click)="buttonClick($event)">Customer</button>
+    </div>
+    <div class="col text-center" >
+      <button mat-stroked-button color="primary" [ngClass]="{'activeButton': step === 'Sensor'}" 
+              (click)="buttonClick($event); tabChangeEvent('All', 0)">Sensor</button>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="step !== 'Sensor'; else sensorTab">
+  <mat-tab-group (selectedTabChange)="tabChangeEvent($event.tab.textLabel, $event.index)" mat-align-tabs="center">
+    <mat-tab label="All">
+      <app-table [tableDataSource]="transformedData"></app-table>
+    </mat-tab>
+    <mat-tab *ngFor="let process of processList" [label]="process">
+      <app-table [tableDataSource]="transformedData"></app-table>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+
+<ng-template #sensorTab>
+  <app-datatable [tableDataSource]="transformedData"></app-datatable>
+</ng-template>
+

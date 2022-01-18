@@ -1,0 +1,99 @@
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="waterTempFilter" placeholder="Water Temp Filter">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="pump10Filter" placeholder="Pump 10 Filter">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="pump5Filter" placeholder="Pump 5 Filter">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="drainSensorFilter" placeholder="Drain Sensor Filter" >
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput class="form-field" [formControl]="WaterLevelFilter" placeholder="Water Level Filter">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="CustomerId">
+      <th mat-header-cell *matHeaderCellDef> Customer Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.CustomerId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="CustomerName">
+      <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.CustomerName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="MachineNr">
+      <th mat-header-cell *matHeaderCellDef> Machine Nr </th>
+      <td mat-cell *matCellDef="let element"> {{element.MachineNr}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="MachineId">
+      <th mat-header-cell *matHeaderCellDef> Machine Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.MachineId}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="MachineTypeSerial">
+        <th mat-header-cell *matHeaderCellDef> Machine Type Serial </th>
+        <td mat-cell *matCellDef="let element"> {{element.MachineTypeSerial}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Process">
+        <th mat-header-cell *matHeaderCellDef> Process </th>
+        <td mat-cell *matCellDef="let element"> {{element.Process}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ProcessTimeStart">
+        <th mat-header-cell *matHeaderCellDef> Process Start Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProcessTimeStart}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="ProcessTimeEnd">
+        <th mat-header-cell *matHeaderCellDef> Process End Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProcessTimeEnd}}  </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="SensorDataWaterTemp">
+        <th mat-header-cell *matHeaderCellDef> Water Temp </th>
+        <td mat-cell *matCellDef="let element"> {{element.SensorDataWaterTemp}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="SensorDataPump10">
+        <th mat-header-cell *matHeaderCellDef> Pump 10 </th>
+        <td mat-cell *matCellDef="let element"> {{element.SensorDataPump10}}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="SensorDataPump5">
+          <th mat-header-cell *matHeaderCellDef> Pump 5 </th>
+          <td mat-cell *matCellDef="let element"> {{element.SensorDataPump5}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="SensorDataDrainSensor">
+          <th mat-header-cell *matHeaderCellDef> Drain Sensor </th>
+          <td mat-cell *matCellDef="let element"> {{element.SensorDataDrainSensor}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="SensorDataWaterLevel">
+          <th mat-header-cell *matHeaderCellDef> Water Level </th>
+          <td mat-cell *matCellDef="let element"> {{element.SensorDataWaterLevel}}</td>
+        </ng-container>
+         
+        <ng-container matColumnDef="OnlineFrom">
+            <th mat-header-cell *matHeaderCellDef> Online From </th>
+            <td mat-cell *matCellDef="let element"> {{element.OnlineFrom}} </td>
+          </ng-container>
+        
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter.</td>
+    </tr> 
+</table>

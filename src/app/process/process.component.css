@@ -1,0 +1,23 @@
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+
+.processListDiv{
+  font-weight: 450;
+  font-size: 20px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.analysis{
+  text-align: right;
+  padding-top: 10px;
+}
+
+.activeButton{
+  background-color: #37aa36;
+  color: white;
+}
