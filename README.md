@@ -1,6 +1,7 @@
 # WassenburgAssignment
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+Documentation for the project is located at: src\assets\documentation\Front-end_Software_Assignment_1.pdf
 
 ## Development server
 
