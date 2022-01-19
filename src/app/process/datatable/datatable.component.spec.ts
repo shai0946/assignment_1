@@ -10,7 +10,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
-
 describe('DatatableComponent', () => {
   let fixture: ComponentFixture<DatatableComponent>;
   let de: DebugElement;
@@ -91,22 +90,10 @@ describe('DatatableComponent', () => {
     });
   });
 
-  xit('test filterfx', () => {
-    const app = fixture.debugElement.componentInstance;
-    let filterstring = {"SensorDataWaterTemp":"12","SensorDataPump10":"","SensorDataPump5":"","SensorDataDrainSensor":"","SensorDataWaterLevel":""};
-    const filterfx =  app.customFilterPredicate();
-    expect(filterfx(app.data,  JSON.stringify(filterstring)).SensorDataWaterTemp).toEqual('12');
-  });
-
   it('should call setupfilter() on search',()=>{
-    
     let spy1 = spyOn(component, 'customFilterPredicate');
-    // let spy2 = spyOn(component.dataSource, 'filterPredicate');
-  
     component.customFilterPredicate();
-  
     expect(spy1).toHaveBeenCalled();
-    // expect(spy2).toHaveBeenCalled();
     expect(component.dataSource.filterPredicate.length).toBeGreaterThan(1);
   });
 
